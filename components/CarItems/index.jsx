@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import StyledBtn from "../StylesBtn";
 import styles from "./styles";
 
 function CarItem() {
@@ -13,6 +14,7 @@ function CarItem() {
         <Text style={styles.title}>Model S</Text>
         <Text style={styles.subTitles}>Sdkhjt</Text>
       </View>
+      <StyledBtn type="primary" />
     </View>
   );
 }
