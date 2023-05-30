@@ -3,18 +3,35 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import StyledBtn from "../StylesBtn";
 import styles from "./styles";
 
-function CarItem() {
+function CarItem({ name, tagline, image, taglineCTA }) {
   return (
     <View style={styles.carContainer}>
       <ImageBackground
-        source={require("../../assets/images/nikita-kachanovsky-ad_0wMHtvlU-unsplash.jpg")}
+        source={{
+          uri: `${image}`,
+        }}
         style={styles.imageBackground}
       />
       <View style={styles.titles}>
-        <Text style={styles.title}>Model S</Text>
-        <Text style={styles.subTitles}>Sdkhjt</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.subTitles}>
+          Starting at ${tagline}{" "}
+          <Text style={styles.subtitleCTA}>{taglineCTA}</Text>
+        </Text>
       </View>
-      <StyledBtn type="primary" />
+
+      <View style={styles.buttoncontainer}>
+        <StyledBtn
+          type="primary"
+          content={"Custom Order"}
+          onPress={() => console.log("custom ws pressed")}
+        />
+        <StyledBtn
+          type="secondary"
+          content={"Existing Inventory"}
+          onPress={() => console.log("existing waspressed")}
+        />
+      </View>
     </View>
   );
 }

@@ -8,23 +8,16 @@ import {
 } from "react-native";
 import styles from "./styles";
 
-function StyledBtn(props) {
-  const type = props.type;
-  console.log(type);
-
-  const backgroundColor = type === "primary" ? "black" : "white";
-  const textColor = type === "primary" ? "white" : "black";
+function StyledBtn({ type, content, onPress }) {
+  const backgroundColor = type === "primary" ? "#171A20CC" : "#FFFFFFA6";
+  const textColor = type === "primary" ? "#FFFFFFA6" : "#171A20";
   return (
     <View style={styles.container}>
       <Pressable
         style={[styles.button, { backgroundColor: backgroundColor }]}
-        onPress={() => {
-          console.warn("btn pressed");
-        }}
+        onPress={() => onPress()}
       >
-        <Text style={[styles.text, { color: textColor }]}>
-          Custom Okjhgrder
-        </Text>
+        <Text style={[styles.text, { color: textColor }]}>{content}</Text>
       </Pressable>
     </View>
   );
